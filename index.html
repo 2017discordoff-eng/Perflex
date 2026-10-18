@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perflex – Un PC plus rapide, pour de vrai</title>
+<meta name="description" content="Perflex : nettoyage réel, optimisations réversibles, libération de la RAM et vue complète de votre matériel. Application Windows gratuite.">
+<meta name="theme-color" content="#09070a">
+<meta property="og:title" content="Perflex – Un PC plus rapide, pour de vrai">
+<meta property="og:description" content="Nettoyage réel, optimisations réversibles, RAM libérée, matériel détaillé. Gratuit sur Windows 10 et 11.">
+<meta property="og:image" content="assets/screenshot.png">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/fx.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Perflex, accueil">
+      <svg viewBox="0 0 600 689" aria-hidden="true"><path fill="#f5f5f5" fill-rule="evenodd" d="M53 0 53 179 51 181 0 181 0 465 101 466 101 677 298 488 505 688 505 466 599 465 599 181 548 181 546 179 547 1 341 158 315 229 459 378 458 595 302 444 155 588 154 428 39 427 39 216 245 215 282 179 281 176ZM350 215 560 216 559 428 498 427 498 369 354 222ZM508 79 508 179 506 181 375 180 506 78ZM92 79 107 88 226 180 93 181 91 179Z"/><path fill="#e1001a" d="M339 160 239 253 145 351 264 352 266 354 239 418 196 529 299 410 376 317 282 316Z"/></svg>
+      Perflex
+    </a>
+    <div class="nav-r">
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#fonctions">Fonctions</a>
+        <a href="#securite">Sécurité</a>
+        <a href="#installation">Installation</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-red btn-sm" href="https://github.com/n0suhq-ship-it/Perflex/releases/download/v1.125/Perflex.Setup.1.125.0.exe" data-download>
+        Télécharger
+        <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40A8 8 0 0 0 168 96h-32V32a8 8 0 0 0-16 0v64H88a8 8 0 0 0-5.66 13.66z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ Hero : le PC en 3D ============ -->
+<section class="hero">
+  <div class="stage" id="stage">
+    <canvas role="img" aria-label="Modèle 3D d’un PC. Glissez pour le faire tourner, cliquez sur une pièce pour zoomer dessus."></canvas>
+    <div class="hots" id="hots"></div>
+    <img class="fallback" src="assets/screenshot.png" width="1138" height="588" alt="Capture d’écran de Perflex">
+  </div>
+
+  <div class="hero-copy">
+    <span class="tag"><i></i>v1.125.0 · Windows 10 / 11</span>
+    <h1 data-split>Un PC plus<br>rapide.<br><span class="dim">Pour de vrai.</span></h1>
+    <p class="lead">Nettoyage réel, optimisations réversibles, RAM libérée, matériel détaillé. <b>Une seule application, gratuite.</b></p>
+    <div class="cta">
+      <a class="btn btn-red" data-magnet href="https://github.com/n0suhq-ship-it/Perflex/releases/download/v1.125/Perflex.Setup.1.125.0.exe" data-download>
+        Télécharger pour Windows
+        <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40A8 8 0 0 0 168 96h-32V32a8 8 0 0 0-16 0v64H88a8 8 0 0 0-5.66 13.66z"/></svg>
+      </a>
+      <a class="btn btn-line" href="#fonctions">Voir les fonctions</a>
+    </div>
+    <p class="meta">78 Mo · installateur .exe · sans compte</p>
+  </div>
+
+  <aside class="partpanel" id="partpanel" aria-live="polite" aria-hidden="true">
+    <button class="pp-back" type="button" data-back>← Vue d’ensemble <kbd>Échap</kbd></button>
+    <p class="pp-idx"><span data-f="idx">01</span> <s>/ <span data-f="tot">06</span></s></p>
+    <h2 data-f="title">Processeur</h2>
+    <p class="pp-desc" data-f="desc"></p>
+    <dl>
+      <div><dt>Perflex affiche</dt><dd data-f="shows"></dd></div>
+      <div><dt>Perflex agit</dt><dd data-f="does"></dd></div>
+    </dl>
+    <div class="pp-nav">
+      <button type="button" data-prev aria-label="Pièce précédente"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+      <button type="button" data-next aria-label="Pièce suivante"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>
+    </div>
+  </aside>
+
+  <div class="hero-foot">
+    <div class="wrap">
+      <p class="hint">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4h-4"/></svg>
+        Glissez pour tourner · cliquez une pièce pour zoomer
+      </p>
+      <nav class="parts-nav" aria-label="Pièces du PC">
+        <button type="button" data-pick="cpu"><b>01</b><span>Processeur</span></button>
+        <button type="button" data-pick="mobo"><b>02</b><span>Carte mère</span></button>
+        <button type="button" data-pick="ram"><b>03</b><span>RAM</span></button>
+        <button type="button" data-pick="gpu"><b>04</b><span>Carte graphique</span></button>
+        <button type="button" data-pick="ssd"><b>05</b><span>Stockage</span></button>
+        <button type="button" data-pick="psu"><b>06</b><span>Alimentation</span></button>
+      </nav>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ Bandeau défilant + chiffres ============ -->
+<section class="strip" aria-label="En bref">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Fortnite</span><span>Valorant</span><span>CS2</span><span>Apex Legends</span><span>League of Legends</span><span>Call of Duty</span><span>Overwatch 2</span><span>Rocket League</span><span>GTA V</span><span>Minecraft</span><span>Roblox</span>
+      <span>Fortnite</span><span>Valorant</span><span>CS2</span><span>Apex Legends</span><span>League of Legends</span><span>Call of Duty</span><span>Overwatch 2</span><span>Rocket League</span><span>GTA V</span><span>Minecraft</span><span>Roblox</span>
+    </div>
+  </div>
+  <div class="wrap stats">
+    <div class="stat rv"><b data-count="8">8</b><span>zones de nettoyage</span></div>
+    <div class="stat rv"><b data-count="11">11</b><span>jeux réglés</span></div>
+    <div class="stat rv"><b data-count="0">0</b><span>compte à créer</span></div>
+    <div class="stat rv"><b data-count="100" data-suffix=" %">100 %</b><span>réglages réversibles</span></div>
+  </div>
+</section>
+
+<!-- ============ Fonctions ============ -->
+<section class="sec" id="fonctions">
+  <div class="wrap features">
+    <div>
+      <p class="kicker rv"><b>01</b>Fonctions</p>
+      <h2 class="rv rv-blur">Ce que fait Perflex.</h2>
+      <div class="rows">
+        <article class="row rv" data-spot><span class="n">01</span><h3>Nettoyer</h3><span class="v">8 zones analysées</span>
+          <p>Fichiers temporaires, cache Windows Update, miniatures, navigateurs, Discord, shaders GPU, corbeille, DNS. Jamais vos documents.</p></article>
+        <article class="row rv" data-spot><span class="n">02</span><h3>Voir son matériel</h3><span class="v">temps réel</span>
+          <p>Carte mère, BIOS, processeur, RAM, carte graphique, disques, écrans, réseau. Avec la charge qui bouge en direct.</p></article>
+        <article class="row rv" data-spot><span class="n">03</span><h3>Optimiser Windows</h3><span class="v">réversible</span>
+          <p>Plan Performances ultimes, mode jeu, Game DVR, priorité au premier plan, souris. Chaque réglage mémorise sa valeur d’origine.</p></article>
+        <article class="row rv" data-spot><span class="n">04</span><h3>Libérer la RAM</h3><span class="v">0 programme fermé</span>
+          <p>Vide la mémoire inactive. Rien n’est fermé. Une liste des programmes gourmands permet d’en fermer, sans toucher à ceux de Windows.</p></article>
+        <article class="row rv" data-spot><span class="n">05</span><h3>Trier le démarrage</h3><span class="v">au choix</span>
+          <p>Ce qui se lance avec Windows, c’est vous qui décidez. Un point de restauration peut être créé avant de tout appliquer.</p></article>
+        <article class="row rv" data-spot><span class="n">06</span><h3>Régler ses jeux</h3><span class="v">11 jeux</span>
+          <p>Fortnite, Valorant, CS2, Apex Legends, League of Legends, Call of Duty, Overwatch 2, Rocket League, GTA V, Minecraft, Roblox.</p></article>
+      </div>
+    </div>
+    <div class="shot rv rv-scale" data-tilt>
+      <figure><img src="assets/screenshot.png" width="1138" height="588" alt="Capture d’écran de Perflex : page d’accueil avec la navigation à gauche et les fonds d’écran à droite" loading="lazy"></figure>
+      <figcaption><span>Fig. 1 — Accueil de Perflex</span><span>v1.125.0</span></figcaption>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sécurité ============ -->
+<section class="sec sec-top safety" id="securite">
+  <div class="wrap safe-grid">
+    <div>
+      <p class="kicker rv"><b>02</b>Sécurité</p>
+      <h2 class="rv rv-blur">Chaque changement garde son plan de repli.</h2>
+      <p class="rv">Avant de toucher à un réglage, Perflex note sa valeur d’origine. Un interrupteur, et tout revient comme avant.</p>
+      <dl class="facts rv">
+        <div><dt>Réversible</dt><dd>La valeur d’origine est sauvegardée, puis restaurée quand vous désactivez l’interrupteur.</dd></div>
+        <div><dt>Restauration</dt><dd>Un point de restauration Windows peut être créé avant d’appliquer plusieurs optimisations d’un coup.</dd></div>
+        <div><dt>Fichiers</dt><dd>Seuls des caches et des fichiers temporaires connus sont supprimés. Jamais vos documents ni vos mots de passe.</dd></div>
+        <div><dt>Processus</dt><dd>La liste des programmes ouverts ne permet jamais de fermer les processus nécessaires à Windows.</dd></div>
+        <div><dt>En local</dt><dd>L’analyse se fait sur votre machine. Pas de compte, pas de suivi, pas de télémétrie.</dd></div>
+        <div><dt>Droits admin</dt><dd>Sans eux, l’application tourne en mode limité : les options système sont simplement grisées.</dd></div>
+      </dl>
+    </div>
+    <div class="log rv rv-left" aria-label="Exemple de journal des modifications">
+      <div class="log-h"><span>journal des modifications</span><span>exemple</span></div>
+      <div class="log-b">
+        <div class="log-r"><em>21:04:31</em><span>Mode Jeu Windows</span><span class="ch">0<i>→</i>1</span><span class="s">appliqué</span></div>
+        <div class="log-r"><em>21:04:31</em><span>Capture Game DVR</span><span class="ch">1<i>→</i>0</span><span class="s">appliqué</span></div>
+        <div class="log-r"><em>21:04:32</em><span>Accélération souris</span><span class="ch">1<i>→</i>0</span><span class="s">appliqué</span></div>
+        <div class="log-r"><em>21:04:32</em><span>Plan d’alimentation</span><span class="ch">éq.<i>→</i>perf.</span><span class="s">appliqué</span></div>
+        <div class="log-r"><em>21:09:10</em><span>Capture Game DVR</span><span class="ch">0<i>→</i>1</span><span class="s ok">restauré</span></div>
+      </div>
+      <div class="log-f">Chaque ligne garde l’ancienne valeur. Désactiver un réglage la remet en place.<span class="log-cur"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Installation ============ -->
+<section class="sec sec-top" id="installation">
+  <div class="wrap install">
+    <div>
+      <p class="kicker rv"><b>03</b>Installation</p>
+      <h2 class="rv rv-blur">Trois étapes, une minute.</h2>
+      <ol class="steps rv">
+        <li><h3>Téléchargez</h3><p>Cliquez sur « Télécharger » et enregistrez <code>Perflex.Setup.1.125.0.exe</code>.</p></li>
+        <li><h3>Lancez l’installateur</h3><p>Double-clic, acceptez la demande d’autorisation de Windows, choisissez le dossier d’installation.</p></li>
+        <li><h3>Lancez un nettoyage</h3><p>Ouvrez Perflex, lancez l’analyse dans « Nettoyer mon PC », puis appliquez les recommandations.</p></li>
+      </ol>
+    </div>
+    <div class="rv">
+      <div class="dl" data-spot>
+        <div class="dl-top">
+          <img src="assets/icon.png" width="68" height="68" alt="Icône de Perflex">
+          <div>
+            <h3>Perflex pour Windows</h3>
+            <p>v1.125.0 · 78 Mo · Windows 10 / 11</p>
+          </div>
+        </div>
+        <a class="btn btn-red" data-magnet href="https://github.com/n0suhq-ship-it/Perflex/releases/download/v1.125/Perflex.Setup.1.125.0.exe" data-download>
+          Télécharger l’installateur
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40A8 8 0 0 0 168 96h-32V32a8 8 0 0 0-16 0v64H88a8 8 0 0 0-5.66 13.66z"/></svg>
+        </a>
+        <p class="dl-sub">Gratuit · sans compte</p>
+        <div class="sha">
+          <div class="sha-h"><span>SHA-256</span><button class="copy" type="button" id="copy-sha">Copier</button></div>
+          <code id="sha">9eb0d8bc338a094ff3a9f38647c2a6cc8f8517c15ba891538b454ba8ff3ab1ab</code>
+        </div>
+      </div>
+      <p class="note"><b>Windows affiche un avertissement ?</b> L’installateur n’est pas encore signé : SmartScreen peut afficher « Windows a protégé votre PC ». Cliquez sur « Informations complémentaires », puis « Exécuter quand même ». Comparez l’empreinte ci-dessus avec celle du fichier téléchargé si vous voulez vérifier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-top" id="faq" style="background:var(--bg2)">
+  <div class="wrap faq-grid">
+    <div>
+      <p class="kicker rv"><b>04</b>FAQ</p>
+      <h2 class="rv rv-blur">Questions fréquentes.</h2>
+    </div>
+    <div class="rv">
+      <details open><summary>Perflex est-il gratuit ?</summary><p>Oui. Le téléchargement et l’utilisation sont gratuits, sans compte ni abonnement.</p></details>
+      <details><summary>Quelles versions de Windows sont compatibles ?</summary><p>Windows 10 et Windows 11. Les fonctions de nettoyage et d’optimisation sont propres à Windows : il n’existe pas de version Mac ou Linux.</p></details>
+      <details><summary>Puis-je annuler une optimisation ?</summary><p>Oui. Chaque optimisation enregistre la valeur d’origine avant de la modifier. Remettez l’interrupteur sur « off » pour la restaurer. Un point de restauration Windows peut aussi être créé avant « Tout appliquer ».</p></details>
+      <details><summary>Pourquoi des options sont-elles grisées ?</summary><p>Certains réglages touchent au système et demandent les droits administrateur. Fermez Perflex, faites un clic droit sur son icône et choisissez « Exécuter en tant qu’administrateur ».</p></details>
+      <details><summary>Le nettoyage est-il sûr ?</summary><p>Seuls des dossiers de cache et de fichiers temporaires connus sont vidés (temporaires, navigateurs, Discord, corbeille…). Vos documents, mots de passe et cookies ne sont pas concernés, et les fichiers en cours d’utilisation sont ignorés.</p></details>
+      <details><summary>Comment désinstaller Perflex ?</summary><p>Paramètres de Windows, « Applications », « Applications installées », puis Perflex et « Désinstaller ».</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Appel final ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="rv rv-blur">Une minute pour l’installer. <span>Un clic pour tout défaire.</span></h2>
+    <div class="cta rv">
+      <a class="btn btn-red" data-magnet href="https://github.com/n0suhq-ship-it/Perflex/releases/download/v1.125/Perflex.Setup.1.125.0.exe" data-download>
+        Télécharger pour Windows
+        <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224 144v64a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v56h160v-56a8 8 0 0 1 16 0zm-101.66 5.66a8 8 0 0 0 11.32 0l40-40A8 8 0 0 0 168 96h-32V32a8 8 0 0 0-16 0v64H88a8 8 0 0 0-5.66 13.66z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 600 689" aria-hidden="true" style="width:22px;height:25px"><path fill="#f5f5f5" fill-rule="evenodd" d="M53 0 53 179 51 181 0 181 0 465 101 466 101 677 298 488 505 688 505 466 599 465 599 181 548 181 546 179 547 1 341 158 315 229 459 378 458 595 302 444 155 588 154 428 39 427 39 216 245 215 282 179 281 176ZM350 215 560 216 559 428 498 427 498 369 354 222ZM508 79 508 179 506 181 375 180 506 78ZM92 79 107 88 226 180 93 181 91 179Z"/><path fill="#e1001a" d="M339 160 239 253 145 351 264 352 266 354 239 418 196 529 299 410 376 317 282 316Z"/></svg>
+      Perflex
+    </a>
+    <nav aria-label="Pied de page"><a href="#fonctions">Fonctions</a><a href="#securite">Sécurité</a><a href="#installation">Installation</a><a href="#faq">FAQ</a></nav>
+    <span>© 2026 Perflex</span>
+  </div>
+</footer>
+
+<script>
+/* Adresse de l'installateur : modifiez uniquement cette ligne.
+   Tous les boutons « Télécharger » de la page la reprennent. */
+var DOWNLOAD_URL = "https://github.com/n0suhq-ship-it/Perflex/releases/download/v1.125/Perflex.Setup.1.125.0.exe";
+</script>
+<script src="assets/three.min.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/pc3d.js"></script>
+<script src="assets/fx.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* Perflex – effets et animations (couche ajoutée au-dessus de style.css) */
+
+/* ---------- barre de progression + halo curseur ---------- */
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;z-index:80;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--red-d),var(--red),#ff8a92);box-shadow:0 0 12px rgba(255,61,74,.6);pointer-events:none}
+.cursor-glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;z-index:1;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,61,74,.10),transparent 62%);opacity:0;transition:opacity .5s;will-change:transform}
+.cursor-glow.on{opacity:1}
+main,.foot{position:relative;z-index:2}
+
+/* ---------- séquence d'entrée du hero (une seule, orchestrée) ---------- */
+.nav{animation:navIn .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes navIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .w>i{display:inline-block;font-style:normal;transform:translateY(112%) rotate(4deg);transform-origin:0 100%;
+  animation:wordUp 1s cubic-bezier(.16,.84,.24,1) both;animation-delay:calc(.25s + var(--i)*.09s)}
+@keyframes wordUp{to{transform:none}}
+.hero-copy .tag,.hero-copy .lead,.hero-copy .cta,.hero-copy .meta{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy .tag{animation-delay:.1s}
+.hero-copy .lead{animation-delay:.75s}
+.hero-copy .cta{animation-delay:.9s}
+.hero-copy .meta{animation-delay:1.05s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero-foot{animation:fadeUp 1s .7s cubic-bezier(.2,.7,.2,1) both}
+.stage{animation:stageIn 1.6s .1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes stageIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+
+/* titre : mots blancs, et dégradé animé sur « Pour de vrai. » */
+.hero h1 .w{color:var(--fg)}
+.hero h1 .dim .w{color:transparent}
+.hero h1 .dim .w>i{background:linear-gradient(100deg,#6d5f64 0%,#a0939a 35%,#ff6b75 50%,#a0939a 65%,#6d5f64 100%);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:wordUp 1s cubic-bezier(.16,.84,.24,1) both,sheen 6s ease-in-out 1.8s infinite;animation-delay:calc(.25s + var(--i)*.09s),1.8s}
+@keyframes sheen{0%{background-position:100% 0}60%,100%{background-position:-60% 0}}
+
+/* aurore douce derrière le hero */
+.hero::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;
+  background:conic-gradient(from 210deg at 72% 50%,rgba(255,61,74,.0),rgba(255,61,74,.12),rgba(120,20,40,.0) 40%,rgba(255,90,100,.08) 70%,rgba(255,61,74,0));
+  filter:blur(60px);animation:aurora 22s linear infinite}
+@keyframes aurora{to{transform:rotate(360deg)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:64px 64px;-webkit-mask-image:radial-gradient(60% 60% at 70% 50%,#000,transparent 75%);mask-image:radial-gradient(60% 60% at 70% 50%,#000,transparent 75%)}
+
+/* ---------- navigation : lien actif + soulignement ---------- */
+.nav-links a{position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--red);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.nav-links a:hover::after,.nav-links a.act::after{transform:scaleX(1)}
+.nav-links a.act{color:var(--fg)}
+
+/* ---------- boutons : reflet + halo ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn-red{box-shadow:0 8px 30px -10px rgba(255,61,74,.7),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-red::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.btn-red:hover::before{transform:translateX(120%)}
+.btn-red:hover{box-shadow:0 14px 40px -10px rgba(255,61,74,.9),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-line{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+[data-magnet]{transition:transform .35s cubic-bezier(.2,.7,.2,1),background .2s,box-shadow .3s}
+
+/* ---------- apparitions variées + décalage automatique ---------- */
+.rv{transition-delay:var(--d,0s)}
+.rv-blur{filter:blur(10px);transition-property:opacity,transform,filter}
+.rv-blur.in{filter:none}
+.rv-scale{transform:translateY(34px) scale(.94)}
+.rv-left{transform:translateX(44px)}
+.rv.in.rv-scale,.rv.in.rv-left{transform:none}
+.kicker::after{width:0;transition:width 1s .3s cubic-bezier(.2,.7,.2,1)}
+.kicker.in::after{width:56px}
+
+/* ---------- bandeau défilant ---------- */
+.strip{border-top:1px solid var(--line);background:var(--bg2);overflow:hidden}
+.marquee{border-bottom:1px solid var(--line);padding:22px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marq 42s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-size:clamp(22px,2.6vw,38px);font-weight:600;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px #4a3d43;padding:0 clamp(22px,2.6vw,40px);white-space:nowrap;position:relative;transition:color .3s,-webkit-text-stroke-color .3s}
+.marquee-track span::after{content:"";position:absolute;right:-3px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--red);opacity:.8}
+.marquee-track span:hover{color:var(--fg);-webkit-text-stroke-color:var(--fg)}
+@keyframes marq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:clamp(34px,4vw,56px)}
+.stat{padding:0 clamp(14px,2vw,32px);border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:clamp(38px,5vw,76px);font-weight:600;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#fff,#b9a9af);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:10px;font-size:13.5px;color:var(--dim)}
+
+/* ---------- cartes : projecteur qui suit la souris ---------- */
+[data-spot]{--mx:50%;--my:50%}
+[data-spot]::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(380px circle at var(--mx) var(--my),rgba(255,61,74,.13),transparent 65%)}
+[data-spot]:hover::after{opacity:1}
+.row{overflow:hidden}
+.row .n{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.row:hover .n{transform:translateX(2px)}
+.row h3{transition:color .25s}
+.row:hover h3{color:#fff}
+.dl{transition:border-color .3s,box-shadow .4s}
+.dl:hover{border-color:rgba(255,61,74,.5);box-shadow:0 30px 80px -30px rgba(255,61,74,.35)}
+.dl::before{animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-40px,30px) scale(1.12)}}
+
+/* capture d'écran : inclinaison 3D + reflet */
+.shot{perspective:1200px}
+.shot figure{position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;will-change:transform}
+.shot figure::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.07) 50%,transparent 65%);transform:translateX(var(--sx,-30%));transition:transform .5s}
+.shot.tilting figure{transition:transform .08s linear}
+
+/* ---------- journal : lignes qui s'écrivent une à une ---------- */
+.log-r{opacity:0;transform:translateX(-10px);transition:opacity .5s,transform .5s,background .2s}
+.log.in .log-r{opacity:1;transform:none}
+.log.in .log-r:nth-child(1){transition-delay:.35s}.log.in .log-r:nth-child(2){transition-delay:.7s}.log.in .log-r:nth-child(3){transition-delay:1.05s}
+.log.in .log-r:nth-child(4){transition-delay:1.4s}.log.in .log-r:nth-child(5){transition-delay:1.75s}
+.log.in .log-r .s.ok{animation:okpulse 1.6s 2.1s ease-out 1 both}
+@keyframes okpulse{0%{text-shadow:0 0 0 rgba(79,194,123,0)}40%{text-shadow:0 0 14px rgba(79,194,123,.9)}100%{text-shadow:0 0 0 rgba(79,194,123,0)}}
+
+/* ---------- FAQ : ouverture fluide ---------- */
+details p{animation:none}
+details[open] p{animation:faqIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+details{transition:background .3s}
+details[open]{background:linear-gradient(90deg,rgba(255,61,74,.05),transparent 60%)}
+
+/* ---------- appel final : halo pulsé ---------- */
+.final{overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;bottom:-40%;width:90vw;height:90vw;max-width:1100px;max-height:1100px;transform:translateX(-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,61,74,.18),transparent 62%);animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{50%{transform:translateX(-50%) scale(1.12);opacity:.7}}
+.final .wrap{position:relative;z-index:1}
+
+/* ---------- adaptatif + accessibilité ---------- */
+@media (max-width:899px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}
+  .stat:nth-child(odd){border-left:0;padding-left:0}
+  .cursor-glow{display:none}
+  .rv-left{transform:translateY(28px)}
+}
+@media (hover:none){[data-spot]::after,.cursor-glow{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .nav,.stage,.hero-foot,.hero-copy .tag,.hero-copy .lead,.hero-copy .cta,.hero-copy .meta,.hero h1 .w>i{animation:none;transform:none;opacity:1;filter:none}
+  .hero::before,.hero h1 .dim .w>i,.marquee-track,.dl::before,.final::before{animation:none}
+  .rv-blur{filter:none}.rv-scale,.rv-left{transform:none}
+  .log-r{opacity:1;transform:none}
+  .kicker::after{width:56px}
+  details[open] p{animation:none}
+  .cursor-glow{display:none}
+}
+.js-off .log-r{opacity:1;transform:none}
+.js-off .hero h1 .w>i{transform:none;animation:none}
